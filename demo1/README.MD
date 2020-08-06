@@ -4,7 +4,7 @@
 ### 一、贴出官网地址镇楼[webpackjs](https://www.webpackjs.com/)
 ### 二、整体目录结构如下
 ```
-  webpack-demo
+  demo1
   |- /node_modules
   |- webpack.config.js
   |- /dist        // 发布文件夹
