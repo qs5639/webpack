@@ -4,12 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
-    "dev": "webpack --mode development",
-    "build": "webpack --mode production",
-    "watch": "webpack --watch",
-    "server": "node server.js",
-    "server2": "node dev-server.js"
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "author": "",
   "license": "ISC",
@@ -21,11 +17,13 @@
     "html-webpack-plugin": "^4.3.0",
     "lodash": "^4.17.19",
     "style-loader": "^1.2.1",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^4.1.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.1.1",
     "xml-loader": "^1.2.1"
   }
 }

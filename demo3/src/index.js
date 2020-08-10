@@ -15,12 +15,12 @@ function component() {
 let element = component();
 document.body.appendChild(element);
 
-if (module.hot) {
-    module.hot.accept('./print.js', function () {
-        console.log("允许通过 updated module")
-        // printMe();
-        document.body.removeChild(element)
-        element = component();
-        document.body.appendChild(element)
-    })
-}
+// if (module.hot) {
+//     module.hot.accept('./print.js', function () {
+//         console.log("允许通过 updated module")
+//         // printMe();
+//         document.body.removeChild(element)
+//         element = component();
+//         document.body.appendChild(element)
+//     })
+// }

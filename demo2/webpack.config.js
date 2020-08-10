@@ -1,12 +1,12 @@
 const path = require('path')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
     // 入口文件
     entry: {
-        app: './src/index.js',
-        print: './src/print.js'
+        app: './src/index.js'
     },
     // 开发者模式
     mode: 'development',
@@ -18,7 +18,9 @@ module.exports = {
         // 输出index.html文件(会将所有打包后的bundle.js文件直接引入)
         new HtmlWebpackPlugin({
             title: 'Output management'
-        })
+        }),
+        new webpack.NamedModulesPlugin(),//容易查看要修补(patch)的依赖
+        new webpack.HotModuleReplacementPlugin()//添加热更新插件
     ],
     // 输出
     output: {
@@ -31,7 +33,8 @@ module.exports = {
     // dev时的服务。http://localhost:3001/index.html
     devServer: {
         contentBase: "./index",
-        port: "3001"
+        port: "3001",
+        hot: true
     },
     // 解析
     resolve: {
@@ -39,5 +42,17 @@ module.exports = {
         alias: {
             MOCKities: path.resolve(__dirname, "src/MOCK/")
         }
+    },
+    module:{
+        rules: [
+            // CSS文件加载
+            {
+                test: /\.css/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
+            }
+        ]
     }
 }
